@@ -16,12 +16,12 @@ export function setTweets(tweets) {
 
 export function nav(count) {
 	return (dispatch, getState) => {
-		let { indexOfFirstVisibleThumbnail } = getState();
+		let { thumbnails: { indexOfFirstVisibleThumbnail } } = getState();
 
-		return {
+		dispatch({
 			type: 'UPDATE_INDEX',
 			index: indexOfFirstVisibleThumbnail + count
-		};
+		});
 	}; 
 }
 
