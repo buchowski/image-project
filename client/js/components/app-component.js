@@ -1,16 +1,12 @@
 import React from 'react';
-import TweetComponent from './tweet-component';
+import ThumbnailNavComponent from './thumbnail-nav-component';
 import SearchComponent from './search-component';
 
-export default function AppComponent({ tweets, search, onClick, onInput }) {
+export default function AppComponent({ visibleThumbnails, search, onClick, onInput, onNav }) {
 	return (
 		<div>
 			<SearchComponent search={ search } onClick={ onClick } onInput={ onInput } />
-			<div id="tweets">
-				{ tweets.map((tweet, i) => 
-					<TweetComponent tweet={ tweet } key={ i} />
-				)}
-			</div>
+			<ThumbnailNavComponent visibleThumbnails={ visibleThumbnails } onNav={ onNav } />
 		</div>
 	)
 }

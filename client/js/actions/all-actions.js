@@ -14,6 +14,17 @@ export function setTweets(tweets) {
 	};
 }
 
+export function nav(count) {
+	return (dispatch, getState) => {
+		let { indexOfFirstVisibleThumbnail } = getState();
+
+		return {
+			type: 'UPDATE_INDEX',
+			index: indexOfFirstVisibleThumbnail + count
+		};
+	}; 
+}
+
 export function searchForTweets() {
 	return (dispatch, getState) => {
 		let { search: { term } } = getState();
