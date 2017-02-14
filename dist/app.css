@@ -5,14 +5,22 @@
 	padding: 12px;
 	border: solid 1px gray;
 }
+#search-box {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
 #search-box > input {
-	display: block;
+	width: 80%;
+	display: inline-block;
 	margin-bottom: 8px;
 }
 #search-box > button {
 	margin-bottom: 8px;
 }
 #search-box > h1 {
+	margin-top: 8px;
 	font-size: 22px;
 }
 
@@ -68,6 +76,12 @@
 }
 @media (max-width: 600px) {
 	.big-screen-nav .thumbnail-container {
+		width: 100%;
+	}
+	#search-box {
+		width: 100%;
+	}
+	#search-box input {
 		width: 100%;
 	}
 }
