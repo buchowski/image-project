@@ -11,7 +11,11 @@ const mapStateToProps = (state) => {
 
 	return {
 		visibleThumbnails: tweets.slice(startIndex, endIndex),
-		term
+		isDisableBigLeftNav: indexOfFirstVisibleThumbnail - 3 < 0,
+		isDisableBigRightNav: indexOfFirstVisibleThumbnail + 3 >= tweets.length - 1,
+		isDiableSmallLeftNav: indexOfFirstVisibleThumbnail - 1 < 0,
+		isDiableSmallRightNav: indexOfFirstVisibleThumbnail >= tweets.length - 1,
+		term,
 	}
 }
 

@@ -86,6 +86,10 @@
 .nav-arrow.left {
 	border-right: 50px solid;
 }
+.nav-arrow.disabled-true {
+	color: lightgray;
+	cursor: not-allowed;
+}
 
 .small-screen-nav {
 	width: 100%;
