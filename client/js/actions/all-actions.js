@@ -27,11 +27,14 @@ export function nav(count) {
 
 export function searchForTweets() {
 	return (dispatch, getState) => {
-		let { search: { term } } = getState();
+		let { search: { term }, thumbnails: { indexOfFirstVisibleThumbnail } } = getState();
 
 		return getTweets(term)
 			.then(tweets => {
+
 				dispatch(setTweets(tweets));
+				// reset to zero after searching for new user
+				dispatch(nav(indexOfFirstVisibleThumbnail * -1));
 			});
 	};
 }
