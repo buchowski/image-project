@@ -1,6 +1,5 @@
 let { CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET } = require('../config.json');
 const Twitter = require('twitter');
-const OFFLINE_DATA = require('./offline-data');
 
 class TwitterService {
 	constructor() {
@@ -17,15 +16,12 @@ class TwitterService {
 		    count: 200
 		};
 
-		return Promise.resolve(OFFLINE_DATA);
+		return this.client.get('statuses/user_timeline', params)
+			.then(timeline => {
+				let clean = this.cleanTimeline(timeline);
 
-		// return this.client.get('statuses/user_timeline', params)
-		// 	.then(timeline => {
-		// 		console.log('got timeline');
-		// 		let clean = this.cleanTimeline(timeline);
-		// 		console.log(JSON.stringify(clean));
-		// 		return clean;
-		// 	});
+				return clean;
+			});
 	}
 	cleanTimeline(timeline) {
 		return this.filterForImages(timeline)
