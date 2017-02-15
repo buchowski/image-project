@@ -48,6 +48,7 @@
 	display: inline-block;
 	height: 200px;
 	border: 1px solid black;
+	background-size: cover;
 }
 
 @media (min-width: 1000px) {

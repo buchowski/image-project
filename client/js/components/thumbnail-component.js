@@ -8,6 +8,6 @@ export default function ThumbnailComponent({ tweet }) {
 			className="thumbnail"
 			style={ { backgroundImage: `url(${media_url})` } }
 			alt={ `photo by ${screen_name}` }
-		>{ media_url }</div>
+		/>
 	)
 }
